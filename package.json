@@ -1,0 +1,20 @@
+{
+  "name": "academybugstest",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "debug": "npx playwright test --ui",
+    "test": "npx playwright test",
+    "allureOpen": "allure open",
+    "allureGenerate": "allure generate",
+    "testEnv": "export NODE_ENV=auto-test npx playwright test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@playwright/test": "^1.48.2",
+    "@types/node": "^22.9.0"
+  }
+}
