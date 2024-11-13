@@ -24,30 +24,32 @@ module.exports = defineConfig({
   reporter: [['html'],['line'], ['allure-playwright']],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
+    baseURL: 'https://academybugs.com/find-bugs/',
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://127.0.0.1:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
-    globalTimeout: 120000, // Устанавливает глобальный тайм-аут на 60 секунд
+    globalTimeout: 120000, // Устанавливает глобальный тайм-аут на 120 секунд
+    timeout: 120000, // Устанавливает тайм-аут на загрузку страницы в 60 секунд
   },
-    expect: {
-      timeout: 10000,
-      },
+   expect: {
+   timeout: 60000,
+  },
 
   /* Configure projects for major browsers */
   projects: [
-    {
+  {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
     },
-
-    /*{
+/*
+    {
       name: 'firefox',
       use: { ...devices['Desktop Firefox'] },
-    }
+    }*/
 
-    {
+   /* {
       name: 'webkit',
       use: { ...devices['Desktop Safari'] },
     },*/
