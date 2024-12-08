@@ -4,7 +4,6 @@ export class App {
     constructor(page) {
         this.page = page;
         this.mainPage = new MainPage (page);
-        this.expectedPage = new ExpectedPage(page);
         this.productPage = new ProductPage(page);
         this.cartPage = new CartPage(page);
 }
