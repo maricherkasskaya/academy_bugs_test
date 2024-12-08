@@ -7,6 +7,8 @@ export class MainPage extends BasePage {
         this.paginationButton = this.page.getByRole('link', { name: '50' });
         this.addToCartButton = this.page.locator('#ec_add_to_cart_5');
         this.checkoutButton = this.page.getByRole('link', { name: 'CHECKOUT NOW' });
+        this.overlayMainPage = this.page.locator('.academy-bug-overlay');
+        this.popupPage = this.page.locator('#popmake-4406');
         
     }
 

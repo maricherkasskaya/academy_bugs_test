@@ -10,6 +10,7 @@ export class ProductPage extends BasePage {
         this.currencyBlock = this.page.locator('#ec_currency_conversion');
         this.hotItemBlock = this.page.locator('#ec_image_product_widget_anchor-bracelet_1_0');
         this.loader = this.page.locator('#post-1820 div').nth(2);
+        this.overlayCardPage = this.page.locator('#sq-page');
 
         
     }
