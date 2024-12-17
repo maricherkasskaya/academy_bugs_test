@@ -41,6 +41,8 @@ test('Bug with discription on product page', async ({ page }) => {
   await app.mainPage.open (url);
   await app.productPage.goToProductCard();
   await app.productPage.goToDescriptionBlock();
+  await app.productPage.chooseCorrectResult();
+  await app.cartPage.goToIssueReport();
   await allure.step ("Проверяем отображение ошибки описания в карточке товара", async () => {
     await expect (app.mainPage.popupPage).toBeVisible();
     await expect (app.mainPage.popupPage).toContainText('In this bug, the short description and description of the product are not in English.');
@@ -89,6 +91,8 @@ test('Bug with the grand total is $100 more', async ({ page }) => {
   await app.mainPage.goToAddProductToCart();
   await app.mainPage.goToCheckout();
   await app.cartPage.goToProductPrice();
+  await app.cartPage.chooseCorrectResult();
+  await app.cartPage.goToIssueReport();
   await allure.step ("Проверяем отображение ошибки общей стоимости товара в корзине", async () => {
     await expect (app.mainPage.popupPage).toBeVisible();
     await expect (app.mainPage.popupPage).toContainText('In this bug, the grand total is $100 more than the sum of all products in the cart.');

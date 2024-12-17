@@ -11,6 +11,9 @@ export class ProductPage extends BasePage {
         this.hotItemBlock = this.page.locator('#ec_image_product_widget_anchor-bracelet_1_0');
         this.loader = this.page.locator('#post-1820 div').nth(2);
         this.overlayCardPage = this.page.locator('#sq-page');
+        this.typeBugCheck = this.page.getByLabel('Content');
+        this.correctResultCheck = this.page.getByLabel('The text should be in English');
+        this.submitButton = this.page.getByRole('button', { name: 'Submit' });
 
         
     }
@@ -27,6 +30,14 @@ export class ProductPage extends BasePage {
     async goToFilterByPrice () {
         await allure.step ("Переход к фильтру по цене", async () => {
         await this.filterByPrice.click();
+    });
+    }
+
+    async chooseCorrectResult () {
+        await allure.step ("Выбрать тип и ожидаемый результат на странице продукта", async () => {
+        await this.typeBugCheck.check();
+        await this.correctResultCheck.check();
+        await this.submitButton.click();
     });
     }
 
