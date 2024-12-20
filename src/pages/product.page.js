@@ -11,8 +11,12 @@ export class ProductPage extends BasePage {
         this.hotItemBlock = this.page.locator('#ec_image_product_widget_anchor-bracelet_1_0');
         this.loader = this.page.locator('#post-1820 div').nth(2);
         this.overlayCardPage = this.page.locator('#sq-page');
-        this.typeBugCheck = this.page.getByLabel('Content');
-        this.correctResultCheck = this.page.getByLabel('The text should be in English');
+        this.typeBugCheckDescription = this.page.getByLabel('Content');
+        this.correctResultCheckDescription = this.page.getByLabel('The text should be in English');
+        this.typeBugCheckFilterByPrice = this.page.getByLabel('Functional', { exact: true });
+        this.correctResultCheckFilterByPrice = this.page.getByLabel('A list of products in the');
+        this.typeBugCheckHotItem = this.page.getByLabel('Performance');
+        this.correctResultCheckHotItem = this.page.getByText('The product in the Hot Item');
         this.submitButton = this.page.getByRole('button', { name: 'Submit' });
 
         
@@ -33,10 +37,26 @@ export class ProductPage extends BasePage {
     });
     }
 
-    async chooseCorrectResult () {
-        await allure.step ("Выбрать тип и ожидаемый результат на странице продукта", async () => {
-        await this.typeBugCheck.check();
-        await this.correctResultCheck.check();
+    async chooseCorrectResultFilterByPrice () {
+        await allure.step ("Выбрать тип и ожидаемый результат для фильтра по цене на странице продукта", async () => {
+        await this.typeBugCheckFilterByPrice.check();
+        await this.correctResultCheckFilterByPrice.check();
+        await this.submitButton.click();
+    });
+    }
+
+    async chooseCorrectResultHotItem () {
+        await allure.step ("Выбрать тип и ожидаемый результат для горящего предложения на странице продукта", async () => {
+        await this.typeBugCheckHotItem.check();
+        await this.correctResultCheckHotItem.check();
+        await this.submitButton.click();
+    });
+    }
+
+    async chooseCorrectResultDescription () {
+        await allure.step ("Выбрать тип и ожидаемый результат для описания на странице продукта", async () => {
+        await this.typeBugCheckDescription.check();
+        await this.correctResultCheckDescription.check();
         await this.submitButton.click();
     });
     }
