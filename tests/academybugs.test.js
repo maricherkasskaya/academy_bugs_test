@@ -11,8 +11,12 @@ test('Bug with pagination on main page', async ({ page }) => {
 
   await app.mainPage.open (url);
   await app.mainPage.goToPagination();
+  await allure.step ("Проверяем отображение типа ошибки пагинации на Главной странице", async () => {
+    await expect (app.mainPage.overlayMainPage).toContainText('You found a crash bug, examine the page by clicking on any button for 5 seconds.');
+  })
+  await app.mainPage.chooseCorrectResultPagination();
+  await app.cartPage.goToIssueReport();
   await allure.step ("Проверяем отображение ошибки пагинации на Главной странице", async () => {
-    await expect (app.mainPage.overlayMainPage).toContainText('You found a crash bug, examine the page for');
     await expect (app.mainPage.popupPage).toContainText('In this bug, the page becomes unresponsive when clicking on the numbers of results.');
     })
   
@@ -25,6 +29,8 @@ test('Bug with filter by price on product page', async ({ page }) => {
   await app.mainPage.open (url);
   await app.productPage.goToProductCard();
   await app.productPage.goToFilterByPrice();
+  await app.productPage.chooseCorrectResultFilterByPrice();
+  await app.cartPage.goToIssueReport();
   await allure.step ("Проверяем отображение ошибки фильтра по цене", async () => {
     await expect (app.mainPage.popupPage).toContainText('In this bug, the filter by price doesn\'t work in the product details or product list pages.');
     })
@@ -39,7 +45,7 @@ test('Bug with discription on product page', async ({ page }) => {
   await app.mainPage.open (url);
   await app.productPage.goToProductCard();
   await app.productPage.goToDescriptionBlock();
-  await app.productPage.chooseCorrectResult();
+  await app.productPage.chooseCorrectResultDescription();
   await app.cartPage.goToIssueReport();
   await allure.step ("Проверяем отображение ошибки описания в карточке товара", async () => {
     await expect (app.mainPage.popupPage).toContainText('In this bug, the short description and description of the product are not in English.');
@@ -72,6 +78,8 @@ test('Bug with hot Item section keeps loading', async ({ page }) => {
     await expect (app.productPage.loader).toBeVisible();
     })
   await app.productPage.goToHotItemLoad();
+  await app.productPage.chooseCorrectResultHotItem();
+  await app.cartPage.goToIssueReport();
   await allure.step ("Проверяем отображение ошибки при переходе в карточку товара из блока горячее предложение", async () => {
     await expect (app.mainPage.popupPage).toContainText('In this bug, the product in the Hot Item section keeps loading.');
     })
