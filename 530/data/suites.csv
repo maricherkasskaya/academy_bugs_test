@@ -1,0 +1,8 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","4602","Bug with hot Item section keeps loading","chromium","Fri Mar 27 02:48:47 UTC 2026","passed","Fri Mar 27 02:48:52 UTC 2026","","academybugs.test.js","",""
+"","5438","Bug with the grand total is $100 more","chromium","Fri Mar 27 02:48:52 UTC 2026","passed","Fri Mar 27 02:48:57 UTC 2026","","academybugs.test.js","",""
+"","30025","Bug with the product quantity cannot be increased past 2","chromium","Fri Mar 27 02:49:59 UTC 2026","broken","Fri Mar 27 02:50:29 UTC 2026","","academybugs.test.js","",""
+"","3873","Bug with discription on product page","chromium","Fri Mar 27 02:48:32 UTC 2026","passed","Fri Mar 27 02:48:36 UTC 2026","","academybugs.test.js","",""
+"","11308","Bug with changing the currency","chromium","Fri Mar 27 02:48:36 UTC 2026","passed","Fri Mar 27 02:48:47 UTC 2026","","academybugs.test.js","",""
+"","11736","Bug with pagination on main page","chromium","Fri Mar 27 02:48:15 UTC 2026","passed","Fri Mar 27 02:48:27 UTC 2026","","academybugs.test.js","",""
+"","4916","Bug with filter by price on product page","chromium","Fri Mar 27 02:48:27 UTC 2026","passed","Fri Mar 27 02:48:32 UTC 2026","","academybugs.test.js","",""
